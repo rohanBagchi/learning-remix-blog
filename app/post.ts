@@ -70,3 +70,9 @@ export async function createPost(post: NewPost) {
   );
   return getPost(post.slug);
 }
+
+export async function deletePost(slug: string) {
+  const fileToDelete = path.join(postsPath, slug + ".md");
+  await fs.rm(fileToDelete);
+  return null;
+}
